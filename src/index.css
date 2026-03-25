@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 67% 3%;
+    --foreground: 240 20% 94%;
+    --card: 230 50% 8%;
+    --card-foreground: 240 20% 94%;
+    --popover: 230 50% 8%;
+    --popover-foreground: 240 20% 94%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 230 67% 3%;
+    --secondary: 20 100% 60%;
+    --secondary-foreground: 230 67% 3%;
+    --muted: 230 30% 15%;
+    --muted-foreground: 240 30% 60%;
+    --accent: 280 100% 50%;
+    --accent-foreground: 240 20% 94%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 230 40% 20%;
+    --input: 230 40% 20%;
+    --ring: 180 100% 50%;
+    --radius: 0.5rem;
+    --sidebar-background: 230 50% 5%;
+    --sidebar-foreground: 240 20% 94%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 230 67% 3%;
+    --sidebar-accent: 230 30% 15%;
+    --sidebar-accent-foreground: 240 20% 94%;
+    --sidebar-border: 230 40% 20%;
+    --sidebar-ring: 180 100% 50%;
+
+    --game-bg: #000010;
+    --game-cyan: #00FFFF;
+    --game-orange: #FF6B35;
+    --game-gold: #FFD700;
+    --game-green: #00FF88;
+    --game-violet: #BD00FF;
+    --game-text: #E0E0FF;
+    --game-text-dim: #7A7AFF;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-game-title {
+    font-family: 'Orbitron', monospace;
+  }
+  .font-game-body {
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% { text-shadow: 2px 0 var(--game-cyan), -2px 0 var(--game-orange); transform: translate(0); }
+  20% { text-shadow: -3px 0 var(--game-cyan), 3px 0 var(--game-orange); transform: translate(2px, -1px); }
+  40% { text-shadow: 3px 0 var(--game-violet), -3px 0 var(--game-cyan); transform: translate(-2px, 1px); }
+  60% { text-shadow: -2px 0 var(--game-orange), 2px 0 var(--game-violet); transform: translate(1px, 2px); }
+  80% { text-shadow: 2px 0 var(--game-cyan), -2px 0 var(--game-green); transform: translate(-1px, -2px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px var(--game-cyan)); }
+  50% { filter: drop-shadow(0 0 20px var(--game-cyan)); }
+}
+
+@keyframes barPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-30px); opacity: 0; }
+}
+
+.animate-glitch {
+  animation: glitch 1.5s infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.animate-bar-pulse {
+  animation: barPulse 0.5s ease-in-out infinite;
+}
+
+.game-container {
+  background: var(--game-bg);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.game-button {
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(0,255,255,0.05));
+  border: 2px solid var(--game-cyan);
+  color: var(--game-cyan);
+  text-shadow: 0 0 10px var(--game-cyan);
+  box-shadow: 0 0 15px rgba(0,255,255,0.3), inset 0 0 15px rgba(0,255,255,0.1);
+  transition: all 0.2s;
+}
+
+.game-button:hover, .game-button:active {
+  background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(0,255,255,0.15));
+  box-shadow: 0 0 30px rgba(0,255,255,0.5), inset 0 0 20px rgba(0,255,255,0.2);
+  transform: scale(1.05);
+}
+
+.game-button-orange {
+  border-color: var(--game-orange);
+  color: var(--game-orange);
+  text-shadow: 0 0 10px var(--game-orange);
+  box-shadow: 0 0 15px rgba(255,107,53,0.3), inset 0 0 15px rgba(255,107,53,0.1);
+  background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,107,53,0.05));
+}
+
+.game-button-orange:hover, .game-button-orange:active {
+  background: linear-gradient(135deg, rgba(255,107,53,0.3), rgba(255,107,53,0.15));
+  box-shadow: 0 0 30px rgba(255,107,53,0.5), inset 0 0 20px rgba(255,107,53,0.2);
+}
+
+.neon-border {
+  border: 1px solid var(--game-cyan);
+  box-shadow: 0 0 10px rgba(0,255,255,0.3), inset 0 0 10px rgba(0,255,255,0.1);
+}
