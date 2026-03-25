@@ -48,7 +48,7 @@ const QuestionModal: React.FC<QuestionModalProps> = ({ question, onAnswer }) => 
     <div className="absolute inset-0 flex items-center justify-center z-40 bg-[#000014]/85">
       <div className="neon-border rounded-xl p-5 md:p-6 bg-[#0a0a2a]/95 max-w-md w-[90%] mx-4">
         <p className="font-game-title text-[var(--game-cyan)] text-sm md:text-base mb-1 tracking-wider">
-          ⚠️ CRISIS DETECTADA
+          ⚠️ ¡PREGUNTA DE METODOLOGÍA DETECTADA!
         </p>
 
         {/* Timer bar */}

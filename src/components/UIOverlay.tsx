@@ -46,8 +46,8 @@ const UIOverlay: React.FC<UIOverlayProps> = ({ bars, score, multiplier, power, e
       <div className="flex justify-between items-start gap-2">
         {/* Left: bars */}
         <div className="flex-1 max-w-[200px] md:max-w-[240px] space-y-1">
-          <BarDisplay label="Tiempo" icon="🕐" value={bars.tiempo} color="#FF6B35" />
-          <BarDisplay label="Costo" icon="💰" value={bars.costo} color="#FFD700" />
+          <BarDisplay label="Alcance" icon="🕐" value={bars.tiempo} color="#FF6B35" />
+          <BarDisplay label="Cronograma" icon="💰" value={bars.costo} color="#FFD700" />
           <BarDisplay label="Calidad" icon="⭐" value={bars.calidad} color="#00FF88" />
           {power.type && powerTimeLeft > 0 && (
             <div className="text-xs font-game-title text-[var(--game-cyan)] mt-1">
